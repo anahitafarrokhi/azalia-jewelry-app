@@ -141,6 +141,9 @@ builder.Services.AddCors(options =>
 
 //builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<AzaliaJwelleryContext>();
 
+Console.WriteLine("Connection string:");
+Console.WriteLine(connectionString);
+
 var app = builder.Build();
 app.UseStaticFiles();
 // Configure the HTTP request pipeline.
