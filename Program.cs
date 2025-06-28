@@ -9,7 +9,10 @@ using Microsoft.IdentityModel.Tokens;
 
 using System.Text;
 var builder = WebApplication.CreateBuilder(args);
-builder.WebHost.UseUrls("http://+:80");
+
+var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+builder.WebHost.UseUrls($"http://*:{port}");
+
 
 // Add services to the container.
 

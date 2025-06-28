@@ -15,5 +15,5 @@ FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
 COPY --from=build /app/out .
 
-EXPOSE 80
+EXPOSE 10000
 ENTRYPOINT ["dotnet", "AzaliaJwellery.dll"]
