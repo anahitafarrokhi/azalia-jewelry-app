@@ -16,4 +16,4 @@ WORKDIR /app
 COPY --from=build /app/out .
 
 EXPOSE 80
-ENTRYPOINT ["dotnet", "AzaliaJwellery.dll"]  # replace with your actual DLL name
+ENTRYPOINT ["dotnet", "AzaliaJwellery.dll"]
