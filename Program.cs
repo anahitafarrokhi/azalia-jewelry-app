@@ -35,7 +35,7 @@ if (string.IsNullOrEmpty(connectionString))
 else
 {
     builder.Services.AddDbContext<ApplicationDbContext>(options =>
-        options.UseSqlServer(connectionString,sqlOptions => sqlOptions.EnableRetryOnFailure()));
+        options.UseSqlServer(connectionString));
 }
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
