@@ -18,7 +18,14 @@ namespace AzaliaJwellery.Repositories
             return await _context.Images.Where(p => p.ProductsId == productId).ToListAsync();
 
         }
-        
+        public async Task AddAsync(List<Images> images)
+        {
+            foreach (var image in images)
+            {
+                await _context.Images.AddAsync(image);
+            }
+        }
+
         public void Remove(IEnumerable<Images> Images)
         {
             _context.Images.RemoveRange(Images);

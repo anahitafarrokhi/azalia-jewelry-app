@@ -13,14 +13,11 @@ namespace AzaliaJwellery.Repositories
         {
             _context = context;
         }
-        public async Task<IEnumerable<JewelleryType>> GetByCategoryIdAsync(int categoryId)
+        public async Task<IEnumerable<JewelleryType>> GetAllAsync()
         {
-            return await _context.JewelleryType.Where(jt => jt.ProductJewelleryTypes.Any(pjt => pjt.Product.ProductCategoryId == categoryId)).ToListAsync();
+            return await _context.JewelleryType.ToListAsync();
         }
-        public async Task<JewelleryType> GetByIdAsync(int id)
-        {
-            return await _context.JewelleryType.FirstOrDefaultAsync(p => p.Id == id);
-        }
+        
         public async Task AddAsync(JewelleryType jewelleryType)
         {
             await _context.JewelleryType.AddAsync(jewelleryType);
@@ -33,6 +30,11 @@ namespace AzaliaJwellery.Repositories
 
         {
             _context.JewelleryType.Remove(jewelleryType);
+        }
+        public void RemoveAll(IEnumerable<JewelleryType> jewelleryType)
+
+        {
+            _context.JewelleryType.RemoveRange(jewelleryType);
         }
 
 

@@ -40,10 +40,8 @@ public class GetProductsByCategoryIdEngagementQueryHandler
             Table = product.Table,
             Depth = product.Depth,
             Certificate = product.Certificate,
-            CertificateUrl = product.CertificateUrl,
             DiamondColor = product.DiamondColor.ToString(),
             Carat = product.CaratWeight.ToString(),
-            Cut = product.Cut.ToString(),
             Clarity = product.Clarity.ToString(),
 
         }).ToList();

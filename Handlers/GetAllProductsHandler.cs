@@ -29,11 +29,11 @@ namespace AzaliaJwellery.Handlers
                     Id = product.ProductCategory.Id,
                     Name = product.ProductCategory.Name
                 },
-                JewelleryType = new JewelleryTypeDto
-                {
-                    Id = product.JewelleryType.Id,
-                    Name = product.JewelleryType.Name
-                },
+                //JewelleryType = new JewelleryTypeDto
+                //{
+                //    Id = product.JewelleryType.Id,
+                //    Name = product.JewelleryType.Name
+                //},
                 Images = product.Images.Select(image => new ImageDto
                 {
                     Id = image.Id,

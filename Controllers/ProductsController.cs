@@ -68,10 +68,11 @@ namespace AzaliaJwellery.Controllers
 
             return Ok(JsonSerializer.Serialize(products, options));
         }
-        //   [Authorize]
-        [HttpPut]
-        public async Task<IActionResult> Update([FromBody] UpdateProductCommand command)
+    
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(int id, [FromForm] UpdateProductCommand command)
         {
+            command.Id = id; // Optional: assign route param to command object
             await _updateHandler.Handle(command);
             return NoContent();
         }
@@ -87,7 +88,15 @@ namespace AzaliaJwellery.Controllers
         public async Task<ActionResult<Products>> GetById(int id)
         {
             var product = await _getByIdHandler.Handle(new GetProductByIdQuery { Id = id });
-            return product == null ? NotFound() : Ok(product);
+           // return product == null ? NotFound() : Ok(product);
+            var options = new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+            };
+
+            return Ok(JsonSerializer.Serialize(product, options));
+
         }
         [HttpGet("multi/{itemShape}/{itemLabOrNat}/{itemColor}/{caratRangeMin}/{caratRangeMax}/{budgetRangeMin}/{budgetRangeMax}/{JewelleryType}/{Category}")]
         public async Task<ActionResult<IEnumerable<ProductDto>>> GetRecentlyMadeRings(int itemShape, int itemLabOrNat, int itemColor, decimal caratRangeMin,

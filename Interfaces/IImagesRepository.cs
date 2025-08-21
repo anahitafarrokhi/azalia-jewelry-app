@@ -7,6 +7,8 @@ namespace AzaliaJwellery.Interfaces
     {
         Task<IEnumerable<Images>> GetByProductIdAsync(int productId);
         void Remove(IEnumerable<Images> Images);
+        Task AddAsync(List<Images> image);
+
 
 
     }

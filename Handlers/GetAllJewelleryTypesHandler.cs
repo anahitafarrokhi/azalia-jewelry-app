@@ -8,16 +8,16 @@ using MediatR;
 
 namespace AzaliaJwellery.Handlers
 {
-    public class GetAllJewelleryTypesByCategoryIdHandler
+    public class GetAllJewelleryTypesHandler
     {
         private readonly IUnitOfWork _unitOfWork;
-        public GetAllJewelleryTypesByCategoryIdHandler(IUnitOfWork unitOfWork)
+        public GetAllJewelleryTypesHandler(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
-        public async Task<IEnumerable<JewelleryType>> Handle(GetAllJewelleryTypeByCategoryIdQuery query)
+        public async Task<IEnumerable<JewelleryType>> Handle()
         {
-            return await _unitOfWork.JewelleryType.GetByCategoryIdAsync(query.CategoryId);
+            return await _unitOfWork.JewelleryType.GetAllAsync();
 
         }
     }

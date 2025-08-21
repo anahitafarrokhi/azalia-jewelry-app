@@ -22,6 +22,7 @@ namespace AzaliaJwellery.Models
     public enum ImageType
     {
         PackingGiftImg = 0,
-        ProductImg = 1
+        ProductImg = 1,
+        CertificateFile = 2
     }
 }

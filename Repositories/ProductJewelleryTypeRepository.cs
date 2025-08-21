@@ -17,7 +17,16 @@ namespace AzaliaJwellery.Repositories
         {
             await _context.ProductJewelleryType.AddAsync(ProductJewelleryType);
         }
-       
+        public async Task<IEnumerable<ProductJewelleryType>> GetByProductIdAsync(int productId)
+        {
+            return await _context.ProductJewelleryType.Where(p => p.ProductId == productId).ToListAsync();
+
+        }
+
+        public void Remove(IEnumerable<ProductJewelleryType> productJewelleryTypes)
+        {
+            _context.ProductJewelleryType.RemoveRange(productJewelleryTypes);
+        }
 
     }
 }

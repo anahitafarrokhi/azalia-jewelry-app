@@ -5,11 +5,13 @@ namespace AzaliaJwellery.Interfaces
 {
     public interface IJewelleryTypeRepository
     {
-        Task<IEnumerable<JewelleryType>> GetByCategoryIdAsync(int categoryId);
-        Task<JewelleryType> GetByIdAsync(int id);
+        Task<IEnumerable<JewelleryType>> GetAllAsync();
+       
         
         Task AddAsync(JewelleryType JewelleryType);
         void Update(JewelleryType JewelleryType);
         void Remove(JewelleryType JewelleryType);
+        void RemoveAll(IEnumerable<JewelleryType> JewelleryType);
+        
     }
 }

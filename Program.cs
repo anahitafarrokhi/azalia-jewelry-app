@@ -130,7 +130,7 @@ builder.Services.AddTransient<UpdateCustomOptionHandler>();
 builder.Services.AddTransient<UpdateOrderHandler>();
 builder.Services.AddTransient<UpdatePaymentHandler>();
 builder.Services.AddTransient<UpdateUserHandler>();
-builder.Services.AddTransient<GetAllJewelleryTypesByCategoryIdHandler>();
+builder.Services.AddTransient<GetAllJewelleryTypesHandler>();
 
 builder.WebHost.CaptureStartupErrors(true)
                .UseSetting("detailedErrors", "true");

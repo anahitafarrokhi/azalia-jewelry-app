@@ -13,8 +13,10 @@ namespace AzaliaJwellery.Queries
         public string Title { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
+        public int productCategoryId { get; set; }
+        
         public ProductCategoryDto ProductCategory { get; set; }
-        public JewelleryTypeDto JewelleryType { get; set; }
+        public List<JewelleryTypeDto> JewelleryTypes { get; set; }
         public List<ImageDto> Images { get; set; }
         public ImageDto ImagePrimary { get; set; }
         public string Color { get; set; } // Enum as string
@@ -26,7 +28,6 @@ namespace AzaliaJwellery.Queries
         public string Style { get; set; } // Enum as string
         public string Gemstone { get; set; } // Enum as string
         public string BirthdayCategory { get; set; } // Enum as string
-        
         public decimal Weight { get; set; }
         public string? WeightDesc { get; set; }
         public decimal? Width { get; set; }
@@ -44,10 +45,22 @@ namespace AzaliaJwellery.Queries
         public string Certificate { get; set; }
         public string CertificateUrl { get; set; }
         public string DiamondColor { get; set; }
+        public int CutInt { get; set; }
         public string Cut { get; set; }
         public string Clarity { get; set; }
         public string Carat { get; set; }
-        
+        public int ColorInt { get; set; }
+        public int LabOrNatInt { get; set; }
+        public int AyarInt { get; set; }
+        public int ProductGenderInt { get; set; }
+        public int CountryMakerInt { get; set; }
+        public int ShapeInt { get; set; }
+        public int StyleInt { get; set; }
+        public int GemstoneInt { get; set; }
+        public int BirthdayCategoryInt { get; set; }
+        public int DiamondColorInt { get; set; }
+        public int ClarityInt { get; set; }
+
 
 
     }
@@ -67,5 +80,7 @@ namespace AzaliaJwellery.Queries
         public int Id { get; set; }
         public string ImageUrl { get; set; }
         public bool IsPrimary { get; set; }
+        public int ImageType { get; set; }
+        
     }
 }

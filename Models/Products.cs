@@ -10,15 +10,13 @@ namespace AzaliaJwellery.Models
         [Required]
         public string Title { get; set; }
         [MaxLength(255)]
-        public string? Description { get; set; }
+        public string Description { get; set; }
         [Required]
         public int ProductCategoryId { get; set; }
         [ForeignKey("ProductCategoryId")]
         public ProductCategory ProductCategory { get; set; }
-        [Required]
-        public int JewelleryTypeId { get; set; }
-        [ForeignKey("JewelleryTypeId")]
-        public JewelleryType JewelleryType { get; set; }
+
+
         [Required]
         [Column(TypeName = "int")]
         public ProductColor Color { get; set; }
@@ -76,28 +74,27 @@ namespace AzaliaJwellery.Models
         [Required]
         public DateTime ModifiedDate { get; set; } = DateTime.UtcNow;
         [MaxLength(100)]
-        public string Polish { get; set; }
+        public string? Polish { get; set; }
         [MaxLength(100)]
-        public string Symmetry { get; set; }
+        public string? Symmetry { get; set; }
         [MaxLength(100)]
-        public string Fluorescence { get; set; }
+        public string? Fluorescence { get; set; }
         [MaxLength(100)]
-        public string Dimensions { get; set; }
+        public string? Dimensions { get; set; }
         [MaxLength(100)]
-        public string Table { get; set; }
+        public string? Table { get; set; }
         [MaxLength(100)]
-        public string Depth { get; set; }
+        public string? Depth { get; set; }
         [MaxLength(100)]
-        public string Certificate { get; set; }
-        [Required]
+        public string? Certificate { get; set; }
         [MaxLength(255)]
-        public string CertificateUrl { get; set; }
         public ICollection<Images> Images { get; set; }
         public ICollection<ProductJewelleryType> ProductJewelleryTypes { get; set; }
     }
 
     public enum ProductColor
     {
+        Choose = 0,
         Silver = 1,
         White = 2,
         Bronz = 3,
@@ -108,6 +105,7 @@ namespace AzaliaJwellery.Models
     }
     public enum LabOrNat
     {
+        Choose = 0,
         LabGrown = 2,
         Natural = 1,
         All = 0,
@@ -115,22 +113,26 @@ namespace AzaliaJwellery.Models
     }
     public enum Ayar
     {
+        Choose = 0,
         _18k= 1,
 
     }
     public enum CountryMaker
     {
+        Choose = 0,
         Dubai = 2,
         USA = 1
     }
     public enum ProductGender
     {
+        Choose = 0,
         Female = 3,
         male = 1,
         Other = 2
     }
     public enum Shape
     {
+        Choose = 0,
         Round = 10,
         Peer = 1,
         Princess = 2,
@@ -144,6 +146,7 @@ namespace AzaliaJwellery.Models
     }
     public enum DiamondColor
     {
+        Choose = 0,
         D = 1,
         E = 2,
         F = 3,
@@ -156,6 +159,7 @@ namespace AzaliaJwellery.Models
     }
     public enum Clarity
     {
+        Choose = 0,
         FL = 1,
         IF = 2,
         VVS1 = 3,
@@ -168,6 +172,7 @@ namespace AzaliaJwellery.Models
     }
     public enum Gemstone
     {
+        Choose = 0,
         Emerald = 5,
         Blue = 1,
         Pink = 2,
@@ -177,6 +182,7 @@ namespace AzaliaJwellery.Models
     }
     public enum Cut
     {
+        Choose = 0,
         IDEAL = 1,
         EXCELLENT = 2,
         VERYGOOD = 3,
@@ -188,6 +194,7 @@ namespace AzaliaJwellery.Models
     
     public enum BirthdayCategory
     {
+        Choose = 0,
         ArabicLetterPendants = 4,
         LetterBracelets = 1,
         LetterPendants = 2,
@@ -196,6 +203,7 @@ namespace AzaliaJwellery.Models
     }
     public enum Style
     {
+        Choose = 0,
         Solitaire = 4,
         DiamondBand = 1,
         Halo = 2,

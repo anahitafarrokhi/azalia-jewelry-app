@@ -20,6 +20,9 @@ namespace AzaliaJwellery.Handlers
             var images = await _unitOfWork.Images.GetByProductIdAsync(product.Id);
             if (images.Any())
                 _unitOfWork.Images.Remove(images);
+            var productJewelleryTypes = await _unitOfWork.ProductJewelleryType.GetByProductIdAsync(product.Id);
+            if (productJewelleryTypes.Any())
+                _unitOfWork.ProductJewelleryType.Remove(productJewelleryTypes);
 
             _unitOfWork.Products.Remove(product);
             await _unitOfWork.SaveChangesAsync();

@@ -36,7 +36,28 @@ namespace AzaliaJwellery.Repositories
 
         public async Task<int> SaveChangesAsync()
         {
-            return await _context.SaveChangesAsync();
+            try
+            {
+                return await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            
+            {
+                // Log the full exception details to the console (or use a logger like Serilog, NLog, etc.)
+                Console.WriteLine("❌ Error in SaveChangesAsync:");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+
+                if (ex.InnerException != null)
+                {
+                    Console.WriteLine("👉 Inner Exception:");
+                    Console.WriteLine(ex.InnerException.Message);
+                    Console.WriteLine(ex.InnerException.StackTrace);
+                }
+
+                // Optionally rethrow for further inspection upstream
+                throw;
+            }
         }
     }
 }
